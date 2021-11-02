@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Akemi Land!</title>
+    <style>
+        html,
+        body {
+            background: #f86d6d repeat center center fixed;
+            height: 100%;
+            margin: 0;
+        }
+
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #a {
+            box-shadow: black;
+            width: 350px;
+            border-radius: 50%;
+
+        }
+
+        #a:hover {
+            opacity: .8;
+            cursor: pointer;
+        }
+
+        .big {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: url(c.png) no-repeat center center;
+            background-size: 100%;
+        }
+
+        .rotate {
+            animation: rotation 2s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="big"></div>
+
+    <div class="center">
+        <img src="a.png" class="rotate" id="a">
+        <p id="hee" style="font-size: 2rem; display: none; text-align: right;">hehee, i got you! <br> akemi's the name, you can find me here on <a href="https://www.castingcall.club/the_real_akemi?tab=Profile">casting call club!</a></p>
+    </div>
+
+
+    <script>
+        var a = document.getElementById('a')
+        var big = document.getElementById('big')
+
+        a.onclick = function () {
+            a.classList.remove('rotate')
+            a.src = 'b.png'
+
+            a.onclick = function () {
+                a.style.width = '200px'
+                
+                a.onclick = function () {
+                    big.classList.add('big')
+                    a.style.display = 'none'
+
+                    var audio = document.createElement('audio')
+                    audio.src = 's.wav'
+                    audio.play()
+
+                    setInterval(function () {
+                        big.style.top = (Math.random() - .5) * 10 + 'px'
+                        big.style.left = (Math.random() - .5) * 10 + 'px'
+                    }, 10)
+
+                    setTimeout(function () {
+                        big.style.display = 'none'
+                        document.getElementById('hee').style.display = 'block'
+                    }, 3500)
+
+                    a.onclick = null
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
